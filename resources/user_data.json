@@ -1,0 +1,65 @@
+{
+  "definitions": {},
+  "type": "object",
+  "required": [
+    "userId",
+    "lastName",
+    "address",
+    "phoneNumbers",
+    "companyId",
+    "companyName"
+  ],
+  "properties": {
+    "userId": {
+      "type": "integer",
+      "default": 0
+    },
+    "lastName": {
+      "type": "string",
+      "default": "",
+      "pattern": "^(.*)$"
+    },
+    "address": {
+      "type": "object",
+      "required": [
+        "streetAddress",
+        "city",
+        "postalCode"
+      ],
+      "properties": {
+        "streetAddress": {
+          "type": "string",
+          "default": "",
+          "pattern": "^(.*)$"
+        },
+        "city": {
+          "type": "string",
+          "default": "",
+          "pattern": "^(.*)$"
+        },
+        "postalCode": {
+          "type": "string",
+          "default": "",
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "phoneNumbers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "default": "",
+        "pattern": "^(.*)$"
+      }
+    },
+    "companyId": {
+      "type": "integer",
+      "default": 0
+    },
+    "companyName": {
+      "type": "string",
+      "default": "",
+      "pattern": "^(.*)$"
+    }
+  }
+}
