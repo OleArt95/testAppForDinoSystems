@@ -5,14 +5,18 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 
 public class UserSearchTest {
 
+    public static final int USER_COMPANY_ID = 1;
+    public static final String MEMBER_NAME  = "member_name";
+
     @Test
     public void searchUserTest(String idCompany, String name) {
         given().
-            param(idCompany, "user_company_id").
-            param(name, "member_name").
+            param(idCompany,USER_COMPANY_ID).
+            param(name,              MEMBER_NAME).
         when().
             get("http://some_domain.com/company/" + idCompany + "/users?name=" + name).
         then().
-            body(matchesJsonSchemaInClasspath("")).extract().path("company_id").equals("user_company_id");
+            body(matchesJsonSchemaInClasspath("user_data.json")).
+            extract().path("companyId").equals(USER_COMPANY_ID);
     }
 }
